@@ -5,7 +5,7 @@ class ContentSinoptik(WeatherFather):
         super(ContentSinoptik, self).__init__(html, mainClass, mainNextDay, tabsContentInner, temperature, pClassOne, pClassTwo, pClassThree, min, max)
 
     def outputInf(self, weatherList):
-        dicSet = Link().enter_the_inf()
+        location_name = Link().enter_the_inf()
         weatherFather = weatherList[0]
         weatherFather2 = weatherList[1]
         weatherFather3 = weatherList[2]
@@ -20,25 +20,26 @@ class ContentSinoptik(WeatherFather):
         
         print()
         print("------------------------------------------------------")
-        print("\t\t\t\t\t\t\t\t\t\tПогода з сайту Sinoptik " + dicSet)
+        print("\t\t\t\t\t\t\t\t\t\tПогода з сайту Sinoptik " + location_name)
         print("День:" + w1['title'])
         print("Число: " + w1['date1'], ' ', w1['date2'])
         print("Температура: :" + w1['temp'], " ||  " + w1['temp2'])
         print()
 
-        mw2 = []
+        weather_day = []
         for i in w2:
-            mw2.append(w2[i])
-        mw3 = []
+            weather_day.append(w2[i])
+
+        weather_day2 = []
         for i in w3:
-            mw3.append(w3[i])
+            weather_day2.append(w3[i])
+
         print("Прогноз на день")
-        for i in mw2:
+        for i in weather_day:
             print(i, end='     ')
-        print()
-        for j in mw3:
+        for j in weather_day2:
             print(j, end='       ')
-            if j == mw3[4]:
+            if j == weather_day2[4]:
                 print(end='  ')
-            if j == mw3[5]:
+            if j == weather_day2[5]:
                 print(end='   ')
